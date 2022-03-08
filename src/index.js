@@ -23,10 +23,7 @@ function shouldCompress (req, res) {
 }
 
 const server = express();
-server.use(compression({ filter: shouldCompress }))
-server.get('/healthcheck', (res, req) => {
-	req.send('ok');
-});
+server.use(compression({ filter: shouldCompress }));
 server.use(handler);
 server.listen(3000, () => {
 	console.log(`Listening on port ${port}`);
