@@ -1,6 +1,6 @@
 {
 	"name": "lettuce-svelte-adapter-express",
-	"version": "1.0.0-next.0",
+	"version": "1.0.0-next.1",
 	"repository": {
 		"type": "git",
 		"url": "https://git.rusondia.net/lettucebowler/adapter-express",
