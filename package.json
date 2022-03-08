@@ -1,5 +1,5 @@
 {
-	"name": "@sveltejs/adapter-express",
+	"name": "lettuce-svelte-adapter-express",
 	"version": "1.0.0-next.0",
 	"repository": {
 		"type": "git",
@@ -31,7 +31,6 @@
 		"prepublishOnly": "npm run build"
 	},
 	"dependencies": {
-		"eslint-plugin-node": "^11.1.0",
 		"tiny-glob": "^0.2.9"
 	},
 	"devDependencies": {
@@ -43,6 +42,7 @@
 		"@types/compression": "^1.7.2",
 		"@typescript-eslint/eslint-plugin": "^5.5.0",
 		"@typescript-eslint/parser": "^5.5.0",
+		"eslint-plugin-node": "^11.1.0",
 		"c8": "^7.11.0",
 		"compression": "^1.7.4",
 		"eslint": "^8.10.0",
