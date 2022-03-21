@@ -1,11 +1,12 @@
 import './shims';
 import fs from 'fs';
 import path from 'path';
-import sirv from 'sirv';
+// import sirv from 'sirv';
 import { fileURLToPath } from 'url';
 import { getRequest, setResponse } from './lib/node';
 import { Server } from 'SERVER';
 import { manifest } from 'MANIFEST';
+import serveStatic from "serve-static";
 
 /* global ORIGIN, PROTOCOL_HEADER, HOST_HEADER */
 
@@ -24,12 +25,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 function serve(path, max_age, immutable = false) {
 	return (
 		fs.existsSync(path) &&
-		sirv(path, {
+		serveStatic(path, {
 			etag: true,
 			maxAge: max_age,
 			immutable,
-			gzip: true,
-			brotli: true
 		})
 	);
 }
@@ -42,9 +41,11 @@ const ssr = async (req, res) => {
 		request = await getRequest(origin || get_origin(req.headers), req);
 	} catch (err) {
 		res.statusCode = err.status || 400;
-		return res.end(err.reason || 'Invalid request body');
+		res.end(err.reason || 'Invalid request body');
+		return;
 	}
 
+	// @ts-ignore
 	setResponse(res, await server.respond(request));
 };
 
