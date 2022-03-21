@@ -25,10 +25,10 @@ export default function ({
 	} = {}
 } = {}) {
 	return {
-		name: '@sveltejs/adapter-node',
+		name: 'ramiroaisen/svelte-adapter-express',
 
 		async adapt(builder) {
-			builder.rimraf(out);
+			builder.rimraf(`${out}/server`);
 
 			builder.log.minor('Copying assets');
 			builder.writeClient(`${out}/client`);
